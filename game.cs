@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace yoinkySploinky
 {
@@ -21,6 +22,9 @@ namespace yoinkySploinky
         Image playerImage = Properties.Resources.spunchBop;
         Image enemyImage = Properties.Resources.jellyfish;
         Image attackImage = Properties.Resources.bubbles;
+        //make music
+        SoundPlayer chaseMusic = new SoundPlayer(Properties.Resources.chaseMusic);
+        SoundPlayer sadMusic = new SoundPlayer(Properties.Resources.sadMusic);
         //make the random generator
         Random random = new Random();
         //declare variables that will change depending on difficulty
@@ -94,6 +98,8 @@ namespace yoinkySploinky
             {
                 if (player.IntersectsWith(enemies[i]))
                 {
+                    //stop music
+                    chaseMusic.Stop();
                     //stop the game
                     gameTimer.Stop();
                     //show game over screen
@@ -101,6 +107,8 @@ namespace yoinkySploinky
                     gameOver.Visible = true;
                     sadPlayer.Enabled = true;
                     sadPlayer.Visible = true;
+                    //start sad music
+                    sadMusic.Play();
                 }
             }
             //refresh
@@ -222,15 +230,23 @@ namespace yoinkySploinky
             {
                 case Keys.W:
                     wDown = true;
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
                     break;
                 case Keys.A:
                     aDown = true;
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
                     break;
                 case Keys.S:
                     sDown = true;
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
                     break;
                 case Keys.D:
                     dDown = true;
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
                     break;
                 case Keys.Escape:
                     Application.Exit();
@@ -246,15 +262,23 @@ namespace yoinkySploinky
             {
                 case Keys.W:
                     wDown = false;
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
                     break;
                 case Keys.A:
                     aDown = false;
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
                     break;
                 case Keys.S:
                     sDown = false;
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
                     break;
                 case Keys.D:
                     dDown = false;
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
                     break;
             }
         }
@@ -300,6 +324,8 @@ namespace yoinkySploinky
             attackDuration = 35;
             //start game
             gameTimer.Enabled = true;
+            //start music
+            chaseMusic.Play();
         }
         private void hardButton_Click(object sender, EventArgs e)
         {
@@ -317,6 +343,8 @@ namespace yoinkySploinky
             attackDuration = 20;
             //start game
             gameTimer.Enabled = true;
+            //start music
+            chaseMusic.Play();
         }
     }
 }

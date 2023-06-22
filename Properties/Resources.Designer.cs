@@ -71,12 +71,30 @@ namespace yoinkySploinky.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream chaseMusic {
+            get {
+                return ResourceManager.GetStream("chaseMusic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap jellyfish {
             get {
                 object obj = ResourceManager.GetObject("jellyfish", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream sadMusic {
+            get {
+                return ResourceManager.GetStream("sadMusic", resourceCulture);
             }
         }
         
