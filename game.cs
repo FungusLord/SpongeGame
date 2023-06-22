@@ -325,7 +325,7 @@ namespace yoinkySploinky
             //start game
             gameTimer.Enabled = true;
             //start music
-            chaseMusic.Play();
+            chaseMusic.PlayLooping();
         }
         private void hardButton_Click(object sender, EventArgs e)
         {
@@ -344,7 +344,7 @@ namespace yoinkySploinky
             //start game
             gameTimer.Enabled = true;
             //start music
-            chaseMusic.Play();
+            chaseMusic.PlayLooping();
         }
     }
 }
